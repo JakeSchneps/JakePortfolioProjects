@@ -1,6 +1,7 @@
 -- July 4th Slots Promotion for JTS Casino
+-- Note : Dataset was built using 2 seperate sets of queries. One for promotional data and another for pre promotional data to make my comparison.
 
--- 1. Subqueries to pull the total promotional bonus for each customer segment
+-- Step 1. Subqueries to pull the total promotional bonus for each customer segment
 
 WITH premium_status_bonus AS (
     SELECT
@@ -47,7 +48,7 @@ low_value_tier_bonus AS (
         playerid
 )
 
- -- 2. Aggregated statistics for each last_year_customer_type
+ -- Step 2. Aggregated statistics for each last_year_customer_type
 
 SELECT
     'Premium Value Tier' AS group_label,
@@ -62,7 +63,7 @@ WHERE
 
 UNION ALL
 
--- 3. Combining all relevant data using "UNION ALL"
+-- Step 3. Combining all relevant data using "UNION ALL"
 
 SELECT
     'High Value Tier' AS group_label,
